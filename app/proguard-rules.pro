@@ -1,0 +1,5 @@
+-keep class org.apache.kafka.** { *; }
+-keep class org.slf4j.** { *; }
+-keep class org.json.** { *; }
+-dontwarn org.apache.kafka.**
+-dontwarn org.slf4j.**

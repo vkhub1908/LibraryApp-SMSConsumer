@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SMS Consumer</string>
+    <string name="start_service">Start SMS Consumer</string>
+    <string name="stop_service">Stop SMS Consumer</string>
+    <string name="title">Library SMS Consumer</string>
+    <string name="status">Service Status: Stopped</string>
+    <string name="service_listening">Service Started - Listening to Kafka...</string>
+    <string name="service_stopped_text">Service Stopped</string>
+    <string name="service_started">SMS Consumer Service Started</string>
+    <string name="service_stopped">SMS Consumer Service Stopped</string>
+    <string name="permissions_required">SMS and Internet permissions are required</string>
+</resources>
