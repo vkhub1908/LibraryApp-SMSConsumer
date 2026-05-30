@@ -31,33 +31,23 @@ android {
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/proguard/androidx-*.pro'
-        resources {
-            excludes += ['META-INF/INDEX.LIST', 'META-INF/io.netty.versions.properties']
-        }
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/io.netty.versions.properties'
     }
 }
 
 dependencies {
-    // AndroidX
+    // Core Android
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     
-    // JSON parsing
+    // JSON
     implementation 'org.json:json:20230227'
     
-    // Kafka client - Use older version for Android compatibility
-    implementation ('org.apache.kafka:kafka-clients:3.5.1') {
-        exclude group: 'org.slf4j'
-        exclude group: 'net.jpountz.lz4'
-        exclude group: 'org.xerial.snappy'
-    }
-    
-    // SLF4J for logging
-    implementation 'org.slf4j:slf4j-android:1.7.36'
+    // Kafka - Minimal version with exclusions
+    implementation 'org.apache.kafka:kafka-clients:2.8.0'
     
     // Testing
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
