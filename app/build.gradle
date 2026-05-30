@@ -26,6 +26,15 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/proguard/androidx-*.pro'
+        resources {
+            excludes += ['META-INF/INDEX.LIST', 'META-INF/io.netty.versions.properties']
+        }
+    }
 }
 
 dependencies {
@@ -34,13 +43,17 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     
-    // Kafka client
-    implementation 'org.apache.kafka:kafka-clients:3.7.0'
-    
     // JSON parsing
     implementation 'org.json:json:20230227'
     
-    // Logging
+    // Kafka client - Use older version for Android compatibility
+    implementation ('org.apache.kafka:kafka-clients:3.5.1') {
+        exclude group: 'org.slf4j'
+        exclude group: 'net.jpountz.lz4'
+        exclude group: 'org.xerial.snappy'
+    }
+    
+    // SLF4J for logging
     implementation 'org.slf4j:slf4j-android:1.7.36'
     
     // Testing
